@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mobile Product Landing Page</title>
+    <meta name="description" content="Explore the latest smartphones with cutting-edge technology. Discover amazing mobiles with advanced features and sleek designs.">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <style>
+        /* Global Styles */
+        body {
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #0d0d0d, #1a1a1a);
+            color: #ffffff;
+            overflow-x: hidden;
+        }
+
+        /* Navbar */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            padding: 15px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.5);
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #00bcd4;
+        }
+
+        nav a {
+            position: relative;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 50%;
+            background-color: #00bcd4;
+            transition: width 0.3s, left 0.3s;
+        }
+
+        nav a:hover::after {
+            width: 100%;
+            left: 0;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            text-align: center;
+            background: url('https://source.unsplash.com/1920x1080/?mobile,technology') no-repeat center center/cover;
+            position: relative;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+        }
+
+        .hero h1 {
+            color: #00bcd4;
+            font-size: 3.5rem;
+            z-index: 1;
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: #ffffff;
+            z-index: 1;
+            animation: fadeIn 2.5s ease-in-out;
+        }
+
+        .hero button {
+            padding: 15px 30px;
+            font-size: 1.1rem;
+            color: #ffffff;
+            background: #00bcd4;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: transform 0.3s, background 0.3s;
+            z-index: 1;
+            animation: fadeIn 3s ease-in-out;
+        }
+
+        .hero button:hover {
+            background: #0288d1;
+            transform: scale(1.1);
+        }
+
+        .hero button {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero button::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 200%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.2);
+            transform: skewX(-45deg);
+            transition: left 0.5s;
+        }
+
+        .hero button:hover::after {
+            left: 100%;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* Features Section */
+        .features {
+            padding: 50px 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            text-align: center;
+        }
+
+        .features div {
+            background: #252525;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .features div:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.8);
+        }
+
+        .features img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+
+        .features h2 {
+            color: #00bcd4;
+            margin: 10px 0;
+        }
+
+        .features p {
+            font-size: 0.95rem;
+            color: #cccccc;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: #1a1a1a;
+            color: #ffffff;
+            box-shadow: 0px -5px 15px rgba(0, 0, 0, 0.5);
+        }
+
+        footer p {
+            margin: 0;
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .hero button {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav>
+        <a href="#">Home</a>
+        <a href="#features">Features</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>Discover Amazing Mobiles</h1>
+        <p>Explore the latest smartphones with cutting-edge technology.</p>
+        <button onclick="scrollToTop()">Shop Now</button>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features">
+        <div>
+            <img src="https://imgs.search.brave.com/bnoKtU-oqrNtl50vPDPO7x4L9y9Imqc6YMWx9SI8Bzk/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly9waXNj/ZXMuYmJ5c3RhdGlj/LmNvbS9pbWFnZTIv/QmVzdEJ1eV9VUy9p/bWFnZXMvcHJvZHVj/dHMvODI3NzgxNzQt/YTZkNC00Y2IwLWFh/ZTktZDVkMDY0YTJj/NGZkLmpwZzttYXhI/ZWlnaHQ9MjYwO21h/eFdpZHRoPTM4Mj9m/b3JtYXQ9d2VicA" alt="Mobile 1">
+            <h2>Mobile 1</h2>
+            <p>Advanced features and sleek design.</p>
+        </div>
+        <div>
+            <img src="https://imgs.search.brave.com/RCtaoEkVdT7CQvxnJjWccf5neOn2wZk3ERHuxG8nJFE/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly93d3cu/YWxsdHJhZGVmbG9v/ci5jb20vY2RuL3No/b3AvZmlsZXMvU2Ft/c3VuZ0dhbGF4eVMy/MV81RzEyOEdCQmxh/Y2stVW5sb2NrZWQx/LnBuZz92PTE2ODk3/NjQ0NzQmd2lkdGg9/ODAw" alt="Mobile 2">
+            <h2>Mobile 2</h2>
+            <p>Unmatched performance and reliability.</p>
+        </div>
+        <div>
+            <img src="https://imgs.search.brave.com/nYB0nkCQnzv59R4g4smhpa5y1zaG_3VroOH-ITAsCJs/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tLm1l/ZGlhLWFtYXpvbi5j/b20vaW1hZ2VzL0kv/NTFZWGR3NmNWWEwu/anBn" alt="Mobile 3">
+            <h2>Mobile 3</h2>
+            <p>Best in class for photography and gaming.</p>
+        </div>
+        <div>
+            <img src="https://imgs.search.brave.com/bl7QpKEeCIJRNh5i1pRs1gZ5k-SNakB9FQG7U1srx4Y/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9jMS5u/ZXdlZ2dpbWFnZXMu/Y29tL3Byb2R1Y3Rp/bWFnZS9uYjMwMC9B/OFg1UzIzMTAyMDBa/T1pYNEY4LmpwZw" alt="Mobile 4">
+            <h2>Mobile 4</h2>
+            <p>High-performance device with advanced accessories.</p>
+        </div>
+        <div>
+            <img src="https://imgs.search.brave.com/oOWB061LRqdqWIWyWtzUM622hjHW4RuOoBp2qIgl1Io/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly90LW1v/YmlsZS5zY2VuZTcu/Y29tL2lzL2ltYWdl/L1RtdXNwcm9kL0ZH/LU9uZVBsdXNfOS01/R193aW50ZXItbWlz/dF9Gcm9udF9SR0It/Mj90cz0xNjc2NTcy/MDQ0ODQxJiRwbmd0/cmFuc3BhcmVudCQm/Zm10PXBuZy1hbHBo/YSZkcHI9b2Zm" alt="Mobile 5">
+            <h2>Mobile 5</h2>
+            <p>Stylish design and durable build quality.</p>
+        </div>
+        <div>
+            <img src="https://imgs.search.brave.com/r9FYMawudlvJzXDdt9xT4Co_ghTO8gHMvHgJ1C39xX0/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tLm1l/ZGlhLWFtYXpvbi5j/b20vaW1hZ2VzL0kv/NTFXZTlFQlVXUkwu/anBn" alt="Mobile 6">
+            <h2>Mobile 6</h2>
+            <p>Fast charging and exceptional battery life.</p>
+        </div>
+        <div>
+            <img src="https://imgs.search.brave.com/tTXJdpna29WHoEFxcz0xHAW29yBHaPbhPbv51seIWkU/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9jMS5u/ZXdlZ2dpbWFnZXMu/Y29tL3Byb2R1Y3Rp/bWFnZS9uYjMwMC9C/SzE1UzIzMDMyNDBE/MUVQRjE2LmpwZw" alt="Mobile 7">
+            <h2>Mobile 7</h2>
+            <p>Immersive display with vibrant colors.</p>
+        </div>
+        <div>
+            <img src="https://imgs.search.brave.com/75IY20p4eFIQMYv9dVWO3OOt9izJYdjba5_GJyM0QfA/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9jMS5u/ZXdlZ2dpbWFnZXMu/Y29tL3Byb2R1Y3Rp/bWFnZS9uYjMwMC9C/SzE1UzI0MDkxMjBN/Mk9JVDA4LmpwZw" alt="Mobile 8">
+            <h2>Mobile 8</h2>
+            <p>Next-gen 5G connectivity for seamless performance.</p>
+        </div>
+        <div>
+            <img src="https://imgs.search.brave.com/4oyx62Kv-PmO0KhLj1AogRvPtu-iuvQLXgkZiKKUXjE/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9jZG4u/bW9zLmNtcy5mdXR1/cmVjZG4ubmV0L2c3/WlNSbllkZ3VIcmFk/alhYWVh4S2MtMzIw/LTgwLmpwZw" alt="Mobile 9">
+            <h2>Mobile 9</h2>
+            <p>Comes with premium headphones for a better experience.</p>
+        </div>
+        <div>
+            <img src="https://imgs.search.brave.com/A4GM62TcDCCX0p7P1WLAgjCBA8aJPChH3Uu6RZn96FA/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9jZG4x/LnNtYXJ0cHJpeC5j/b20vcngtaW42a2J5/ZUZZLXcyODAtaDI4/MC9ob25vci1tYWdp/Yy03LWxpdGUuanBn" alt="Mobile 10">
+            <h2>Mobile 10</h2>
+            <p>Revolutionary camera system for stunning photography.</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Mobile Products. All rights reserved.</p>
+    </footer>
+
+    <button id="back-to-top" style="position: fixed; bottom: 30px; right: 30px; padding: 10px 20px; background: #00bcd4; color: white; border: none; border-radius: 5px; cursor: pointer; display: none;" onclick="scrollToTop()">↑ Top</button>
+
+    <script>
+        // Dynamic Button Animation
+        document.querySelector('button').addEventListener('click', () => {
+            alert('Welcome to the product store! Explore now!');
+        });
+
+        // Smooth Scrolling
+        document.querySelectorAll('nav a').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                target.scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+
+        // Back to Top Button
+        const backToTopButton = document.getElementById('back-to-top');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 200) {
+                backToTopButton.style.display = 'block';
+            } else {
+                backToTopButton.style.display = 'none';
+            }
+        });
+
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    </script>
+
+</body>
+</html>
